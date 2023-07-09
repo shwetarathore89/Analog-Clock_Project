@@ -1,0 +1,78 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  background: radial-gradient(circle, hsl(310, 67%, 86%), hsl(197, 47%, 55%));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+.clock {
+  width: 380px;
+  height: 380px;
+  background-color: rgb(201, 223, 238);
+  border-radius: 50%;
+  border: 3px solid black;
+  position: relative;
+}
+.clock span {
+  --rotation: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transform: rotate(calc(30deg * var(--i)));
+  font-size: 2rem;
+}
+.clock span b {
+  transform: rotate(calc(-30deg * var(--i)));
+  display: inline-block;
+}
+.clock .hand {
+  display: inline-block;
+  --rotation: 0;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  border: 1px solid white;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 10px;
+  transform-origin: bottom;
+  background-color: black;
+  transform-origin: bottom;
+  z-index: 10;
+  transform: translateX(-50%) rotate(cal(var(--rotation) * 1deg));
+}
+.clock::after {
+  content: "";
+  position: absolute;
+  background-color: black;
+  z-index: 11;
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+.clock .hand.second {
+  width: 4px;
+  height: 43%;
+  background-color: rgb(134, 17, 17);
+}
+.clock .hand.minute {
+  width: 5px;
+  height: 38%;
+  background-color: black;
+}
+.clock .hand.hour {
+  width: 8px;
+  height: 30%;
+  background-color: black;
+}
